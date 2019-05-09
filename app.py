@@ -69,7 +69,7 @@ def main():
                                      result1=prediction,
                                      # original_input2={'math':math,
                                        #                'reading':reading},
-                                     result2=f'${prediction_sat[1:6]} to ${prediction_sat[8:14]}',
+                                     result2=f'${prediction_sat[1:6]} to ${prediction_sat[8:-1]}',
                                      result3='{:00.0f}'.format(prediction_ten)
                                      )
         # return jsonify(jdata)
