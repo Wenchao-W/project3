@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<title>School Predictor</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/static/css/style.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+
+
+
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+<body class="w3-light-grey">
+
+<!-- w3-content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width: 100%;">
+    
+<!-- Header -->
+<header class="w3-container w3-center w3-padding-32"> 
+  <h1><b>SCHOOL PREDICTOR</b></h1>
+  <p>Brought to you by <span class="w3-tag">must love cats</span></p>
+</header>
+
+<!-- Grid -->
+<div class="w3-row" style="padding: 1%">
+
+<!-- Flask App -->
+<div class="w3-col l4">
+  <!-- Blog entry -->
+  <div class="w3-card-4 w3-margin w3-white">
+    <div class="w3-container">
+      <h3><b>MODEL</b></h3>
+    </div>
+
+    <div class="w3-container">
+    <form action="{{ url_for('main') }}" method="POST">
+        <fieldset>
+            <legend>Tell us about you:</legend>
+            What is the average cost of attendance per year:
+            <br><input name="cost" type="number" required>
+            <br>
+            <br>What are/were your earnings 10 years after graduation:
+            <br><input name="earnings" type="number" required>
+            <br>
+            <br> How much is your debt:
+            <br><input name="debt" type="number" required>
+            <br>
+            <br>
+            What was your best SAT math score:
+            <input name="math" type="number" required>
+            <br>
+            <br> What was your best SAT reading score:
+            <input name="reading" type="number" required>
+            <br>
+            <br> Your 6 year earnings:
+            <br><input name="six" type="number" required>
+            <br>
+            <br> Your 7 year earnings:
+            <br><input name="seven" type="number" required>
+            <br>
+            <br> Your 8 year earnings:
+            <br><input name="eight" type="number" required>
+            <br>
+            <br> 
+            <input type="submit">
+        </fieldset>
+    </form>
+    <br>
+    </div>
+  </div>
+  <hr>
+
+
+<!-- END BLOG ENTRIES -->
+</div>
+
+<!-- Results card -->
+<div class="w3-col l8 s12">
+  <!-- Card -->
+  <div class="w3-card w3-margin w3-margin-top">
+    <div class="w3-container w3-white">
+      <h4><b>RESULTS</b></h4>
+      <div id="result1" align="center">
+        {% if result1==0 %}
+            
+                
+                <p style="font-size:30px">You most likely went to a public school</p>
+               <!-- <p style="font-size:50px">{{ result }}</p> -->
+        {% endif %}
+        {% if result1==1 %}
+                
+                <p style="font-size:30px">You most likely went to a private school</p> 
+        {% endif %}   
+    </div>
+    <div class="result2" align="center">
+      
+      {% if result2 %} 
+      <p style="font-size:30px">You might reasonably expect your earnings ten years after graduation to be in this range {{ result2 }}.</p>
+      {% endif %}   
+      <!-- <p style="font-size:50px">{{ result }}</p> -->
+                 
+  </div>
+    <div class="result3" align="center">
+      
+      {% if result3 %} 
+      <p style="font-size:30px">Your predicted 10 years earning is ${{ result3 }}.</p>
+      {% endif %}   
+      <!-- <p style="font-size:50px">{{ result }}</p> -->
+                 
+  </div>
+    </div>
+  </div><hr>
+  
+<!-- END Results Card -->
+</div>
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END w3-content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+        <i class="fab fa-github"></i>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+<script src="/static/js/app.js"></script>
+</body>
+</html>
